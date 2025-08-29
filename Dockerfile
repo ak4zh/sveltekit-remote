@@ -20,6 +20,6 @@ ENV DATABASE_URL=$DATABASE_URL
 ENV NODE_ENV=production
 ENV ORIGIN=http://localhost:3000
 
-COPY --from=build /app/out/ .
+COPY --from=build /app/out/ .Visit
 EXPOSE 3000
 CMD ["build"]
