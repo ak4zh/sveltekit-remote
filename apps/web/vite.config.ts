@@ -13,6 +13,6 @@ export default defineConfig({
 		})
 	],
 	ssr: {
-    	external: ['@libsql/linux-x64-gnu'] // don't bundle it, require at runtime
+		external: ['@libsql/linux-x64-gnu'] // don't bundle it, require at runtime
 	}
 });

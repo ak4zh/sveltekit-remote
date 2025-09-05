@@ -1,2 +1,1 @@
-import { db, schema } from 'db';
-export { db, schema };
+export * from 'db';
