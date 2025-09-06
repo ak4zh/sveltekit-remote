@@ -11,8 +11,5 @@ export default defineConfig({
 			project: './project.inlang',
 			outdir: './src/lib/paraglide'
 		})
-	],
-	ssr: {
-		external: ['@libsql/linux-x64-gnu'] // don't bundle it, require at runtime
-	}
+	]
 });

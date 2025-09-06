@@ -3,27 +3,27 @@ import { db, schema } from '$lib/server/db';
 import { eq } from 'drizzle-orm';
 
 export const getUsers = query(async () => {
-	const users = await db.select().from(schema.user);
+	const users = await db.select().from(schema.demo);
 	return users;
 });
 
 export const insertUser = command('unchecked', async () => {
-	await db.insert(schema.user).values({ age: Math.round(Math.random() * 10) });
+	await db.insert(schema.demo).values({ age: Math.round(Math.random() * 10) });
 });
 
 export const deleteUser = command('unchecked', async () => {
 	const row = await db
-		.select({ id: schema.user.id })
-		.from(schema.user)
-		.orderBy(schema.user.age)
+		.select({ id: schema.demo.id })
+		.from(schema.demo)
+		.orderBy(schema.demo.age)
 		.limit(1);
 
 	// Step 2: delete that row
 	if (row.length > 0) {
-		await db.delete(schema.user).where(eq(schema.user.id, row[0].id));
+		await db.delete(schema.demo).where(eq(schema.demo.id, row[0].id));
 	}
 });
 
 export const deleteAll = command('unchecked', async () => {
-	console.log(await db.delete(schema.user));
+	await db.delete(schema.demo)
 });
